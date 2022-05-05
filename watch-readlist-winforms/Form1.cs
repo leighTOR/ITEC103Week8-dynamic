@@ -14,7 +14,9 @@ namespace watch_readlist_winforms
 {
     public partial class Form1 : MaterialForm
     {
-        Queue queue = new Queue();
+        Queue anime_queue = new Queue();
+        Queue manga_queue = new Queue();
+
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace watch_readlist_winforms
             if (tbAnime.Text != "")
             {
                 lstbAnime.Items.Add(new MaterialListBoxItem(tbAnime.Text));
-                queue.Enqueue(tbAnime.Text);
+                anime_queue.Enqueue(tbAnime.Text);
             }
             else
             {
@@ -51,7 +53,7 @@ namespace watch_readlist_winforms
             try
             {
                 lstbAnime.Items.RemoveAt(0);
-                queue.Dequeue();
+                anime_queue.Dequeue();
             }
             catch (Exception ex)
             {
@@ -63,7 +65,7 @@ namespace watch_readlist_winforms
         {
             try
             {
-                MessageBox.Show($"Top: {queue.Peek()}");
+                MessageBox.Show($"Top: {anime_queue.Peek()}");
             }
             catch (Exception ex)
             {
@@ -75,7 +77,7 @@ namespace watch_readlist_winforms
         {
             try
             {
-                MessageBox.Show($"Count: {queue.Count}");
+                MessageBox.Show($"Count: {anime_queue.Count}");
             }
             catch (Exception ex)
             {
@@ -86,7 +88,67 @@ namespace watch_readlist_winforms
         private void btnAnimeClearAll_Click(object sender, EventArgs e)
         {
             lstbAnime.Items.Clear();
-            queue.Clear();
+            anime_queue.Clear();
+        }
+
+        private void btnMangaAdd_Click(object sender, EventArgs e)
+        {
+            if (tbAnime.Text != "")
+            {
+                lstbManga.Items.Add(new MaterialListBoxItem(tbManga.Text));
+                manga_queue.Enqueue(tbManga.Text);
+            }
+            else
+            {
+                MessageBox.Show("Empty textbox.");
+            }
+        }
+
+        private void btnMangaClear_Click(object sender, EventArgs e)
+        {
+            tbManga.ResetText();
+        }
+
+        private void btnMangaRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lstbManga.Items.RemoveAt(0);
+                manga_queue.Dequeue();
+            }
+            catch
+            {
+                MessageBox.Show("List empty.");
+            }
+        }
+
+        private void btnMangaShow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show($"Top: {manga_queue.Peek()}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnMangaCount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show($"Count: {manga_queue.Count}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnMangaClearAll_Click(object sender, EventArgs e)
+        {
+            lstbManga.Items.Clear();
         }
     }
 }
