@@ -52,8 +52,10 @@ namespace watch_readlist_winforms
         {
             try
             {
+                lstbHistory.Items.Add(lstbAnime.Items[0]);
                 lstbAnime.Items.RemoveAt(0);
                 anime_queue.Dequeue();
+                
             }
             catch (Exception ex)
             {
@@ -87,6 +89,9 @@ namespace watch_readlist_winforms
 
         private void btnAnimeClearAll_Click(object sender, EventArgs e)
         {
+            foreach (var item in lstbAnime.Items)
+                lstbHistory.Items.Add(item);
+
             lstbAnime.Items.Clear();
             anime_queue.Clear();
         }
@@ -113,6 +118,7 @@ namespace watch_readlist_winforms
         {
             try
             {
+                lstbHistory.Items.Add(lstbManga.Items[0]);
                 lstbManga.Items.RemoveAt(0);
                 manga_queue.Dequeue();
             }
@@ -148,7 +154,16 @@ namespace watch_readlist_winforms
 
         private void btnMangaClearAll_Click(object sender, EventArgs e)
         {
+            foreach (var item in lstbManga.Items)
+                lstbHistory.Items.Add(item);
+
             lstbManga.Items.Clear();
+            manga_queue.Clear();
+        }
+
+        private void btnHistoryClearAll_Click(object sender, EventArgs e)
+        {
+            lstbHistory.Items.Clear();
         }
     }
 }
