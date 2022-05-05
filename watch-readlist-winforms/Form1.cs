@@ -51,9 +51,9 @@ namespace watch_readlist_winforms
                 anime_queue.Dequeue();
                 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("List empty.");
             }
         }
 
@@ -92,7 +92,7 @@ namespace watch_readlist_winforms
 
         private void btnMangaAdd_Click(object sender, EventArgs e)
         {
-            if (tbAnime.Text != "")
+            if (tbManga.Text != "")
             {
                 lstbManga.Items.Add(new MaterialListBoxItem(tbManga.Text));
                 manga_queue.Enqueue(tbManga.Text);
