@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -109,10 +103,7 @@ namespace watch_readlist_winforms
             }
         }
 
-        private void btnMangaClear_Click(object sender, EventArgs e)
-        {
-            tbManga.ResetText();
-        }
+        private void btnMangaClear_Click(object sender, EventArgs e) => tbManga.ResetText();
 
         private void btnMangaRemove_Click(object sender, EventArgs e)
         {
@@ -161,9 +152,6 @@ namespace watch_readlist_winforms
             manga_queue.Clear();
         }
 
-        private void btnHistoryClearAll_Click(object sender, EventArgs e)
-        {
-            lstbHistory.Items.Clear();
-        }
+        private void btnHistoryClearAll_Click(object sender, EventArgs e) => lstbHistory.Items.Clear();
     }
 }
