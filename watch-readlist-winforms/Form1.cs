@@ -37,10 +37,16 @@ namespace watch_readlist_winforms
             }
         }
 
-        private void btnAnimeClear_Click(object sender, EventArgs e)
+        private void tbAnime_KeyDown(object sender, KeyEventArgs e)
         {
-            tbAnime.ResetText();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAnimeAdd_Click(sender, e);
+                tbAnime.ResetText();
+            }
         }
+
+        private void btnAnimeClear_Click(object sender, EventArgs e) => tbAnime.ResetText();
 
         private void btnAnimeRemove_Click(object sender, EventArgs e)
         {
@@ -100,6 +106,15 @@ namespace watch_readlist_winforms
             else
             {
                 MessageBox.Show("Empty textbox.");
+            }
+        }
+
+        private void tbManga_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnMangaAdd_Click(sender, e);
+                tbManga.ResetText();
             }
         }
 
