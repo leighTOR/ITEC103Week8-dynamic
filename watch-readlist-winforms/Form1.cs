@@ -43,6 +43,8 @@ namespace watch_readlist_winforms
             {
                 btnAnimeAdd_Click(sender, e);
                 tbAnime.ResetText();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -115,6 +117,8 @@ namespace watch_readlist_winforms
             {
                 btnMangaAdd_Click(sender, e);
                 tbManga.ResetText();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
