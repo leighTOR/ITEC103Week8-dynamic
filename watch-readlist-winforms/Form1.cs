@@ -32,9 +32,7 @@ namespace watch_readlist_winforms
                 anime_queue.Enqueue(tbAnime.Text);
             }
             else
-            {
                 MessageBox.Show("Empty textbox.");
-            }
         }
 
         private void tbAnime_KeyDown(object sender, KeyEventArgs e)
@@ -106,9 +104,7 @@ namespace watch_readlist_winforms
                 manga_queue.Enqueue(tbManga.Text);
             }
             else
-            {
                 MessageBox.Show("Empty textbox.");
-            }
         }
 
         private void tbManga_KeyDown(object sender, KeyEventArgs e)
