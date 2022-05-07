@@ -6,11 +6,18 @@ using MaterialSkin.Controls;
 
 namespace watch_readlist_winforms
 {
+    /// <summary>
+    /// A desktop application that lists your want to 
+    /// watch & read, already read manga, and watched anime.
+    /// This project implemented a dynamic data structure which
+    /// is queue to demonstrate how this dynamic works. 
+    /// </summary>
     public partial class Form1 : MaterialForm
     {
         Queue anime_queue = new Queue();
         Queue manga_queue = new Queue();
 
+        #region Constructors
         public Form1()
         {
             InitializeComponent();
@@ -19,23 +26,27 @@ namespace watch_readlist_winforms
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green900, Primary.Green800, Primary.Green500, Accent.LightGreen700, TextShade.WHITE);
         }
+        #endregion
 
+        #region Home tab
         /// <summary>
-        /// Clicking the anime button from the home tab.
+        /// Going to anime tab.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAnime_Click(object sender, EventArgs e) => tbctrlMenu.SelectedTab = tabAnime;
 
         /// <summary>
-        /// Clicking the manga button from the manga tab.
+        /// Going to manga tab.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnManga_Click(object sender, EventArgs e) => tbctrlMenu.SelectedTab = tabManga;
+        #endregion
 
+        #region Anime tab
         /// <summary>
-        /// Clicking the add button from the anime tab.
+        /// Adding a anime title from textbox to listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,14 +78,15 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the remove button from anime tab.
+        /// Clearing the anime title textbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAnimeClear_Click(object sender, EventArgs e) => tbAnime.ResetText();
 
         /// <summary>
-        /// Clicking the remove top button from anime tab.
+        /// Adding the top title to history listbox then
+        /// removing it from the manga listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -94,7 +106,7 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the show top button from anime tab.
+        /// Showing the top title from listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -111,7 +123,7 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the count button from anime tab.
+        /// Counting all the titles inside the listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -128,7 +140,8 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the clear all button from anime tab.
+        /// Adding all the titles to history listbox then
+        /// clearing all the manga listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -140,9 +153,11 @@ namespace watch_readlist_winforms
             lstbAnime.Items.Clear();
             anime_queue.Clear();
         }
+        #endregion
 
+        #region Manga tab
         /// <summary>
-        /// Clicking the add button from manga tab.
+        /// Adding a manga title from textbox to listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -174,14 +189,15 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the clear button from manga tab.
+        /// Clearing the manga title textbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnMangaClear_Click(object sender, EventArgs e) => tbManga.ResetText();
 
         /// <summary>
-        /// Clicking the remove top button from manga tab.
+        /// Adding the top manga title to history listbox
+        /// then removing the it from manga listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -200,7 +216,7 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the show top button from manga tab.
+        /// Showing the top manga title from the listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -217,7 +233,7 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the count button from manga tab.
+        /// Counting all the manga titles inside the textbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -234,7 +250,8 @@ namespace watch_readlist_winforms
         }
 
         /// <summary>
-        /// Clicking the clear all button from manga tab.
+        /// Transfering all the titles to history listbox
+        /// then clearing the manga listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -246,9 +263,10 @@ namespace watch_readlist_winforms
             lstbManga.Items.Clear();
             manga_queue.Clear();
         }
+        #endregion
 
         /// <summary>
-        /// Clicking the clear history button from history tab.
+        /// Clearing all the titles inside the history listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
