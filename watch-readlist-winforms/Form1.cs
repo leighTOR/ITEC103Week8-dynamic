@@ -20,10 +20,25 @@ namespace watch_readlist_winforms
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green900, Primary.Green800, Primary.Green500, Accent.LightGreen700, TextShade.WHITE);
         }
 
+        /// <summary>
+        /// Clicking the anime button from the home tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnime_Click(object sender, EventArgs e) => tbctrlMenu.SelectedTab = tabAnime;
 
+        /// <summary>
+        /// Clicking the manga button from the manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnManga_Click(object sender, EventArgs e) => tbctrlMenu.SelectedTab = tabManga;
 
+        /// <summary>
+        /// Clicking the add button from the anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeAdd_Click(object sender, EventArgs e)
         {
             if (tbAnime.Text != "")
@@ -35,6 +50,11 @@ namespace watch_readlist_winforms
                 MessageBox.Show("Empty textbox.");
         }
 
+        /// <summary>
+        /// Pressing the enter key to trigger the add button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbAnime_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -46,13 +66,23 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the remove button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeClear_Click(object sender, EventArgs e) => tbAnime.ResetText();
 
+        /// <summary>
+        /// Clicking the remove top button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeRemove_Click(object sender, EventArgs e)
         {
             try
             {
-                lstbHistory.Items.Add(lstbAnime.Items[0]);
+                lstbHistory.Items.Add(lstbAnime.Items[0]); // moving it to history listbox.
                 lstbAnime.Items.RemoveAt(0);
                 anime_queue.Dequeue();
                 
@@ -63,6 +93,11 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the show top button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeShow_Click(object sender, EventArgs e)
         {
             try
@@ -75,6 +110,11 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the count button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeCount_Click(object sender, EventArgs e)
         {
             try
@@ -87,15 +127,25 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the clear all button from anime tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimeClearAll_Click(object sender, EventArgs e)
         {
             foreach (var item in lstbAnime.Items)
-                lstbHistory.Items.Add(item);
+                lstbHistory.Items.Add(item); // moving it to history listbox.
 
             lstbAnime.Items.Clear();
             anime_queue.Clear();
         }
 
+        /// <summary>
+        /// Clicking the add button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaAdd_Click(object sender, EventArgs e)
         {
             if (tbManga.Text != "")
@@ -107,6 +157,11 @@ namespace watch_readlist_winforms
                 MessageBox.Show("Empty textbox.");
         }
 
+        /// <summary>
+        /// Pressing the enter key to trigger the add button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbManga_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -118,13 +173,23 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the clear button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaClear_Click(object sender, EventArgs e) => tbManga.ResetText();
 
+        /// <summary>
+        /// Clicking the remove top button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaRemove_Click(object sender, EventArgs e)
         {
             try
             {
-                lstbHistory.Items.Add(lstbManga.Items[0]);
+                lstbHistory.Items.Add(lstbManga.Items[0]); // moving it to history listbox.
                 lstbManga.Items.RemoveAt(0);
                 manga_queue.Dequeue();
             }
@@ -134,6 +199,11 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the show top button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaShow_Click(object sender, EventArgs e)
         {
             try
@@ -146,6 +216,11 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the count button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaCount_Click(object sender, EventArgs e)
         {
             try
@@ -158,15 +233,25 @@ namespace watch_readlist_winforms
             }
         }
 
+        /// <summary>
+        /// Clicking the clear all button from manga tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMangaClearAll_Click(object sender, EventArgs e)
         {
             foreach (var item in lstbManga.Items)
-                lstbHistory.Items.Add(item);
+                lstbHistory.Items.Add(item);  // moving it to history listbox.
 
             lstbManga.Items.Clear();
             manga_queue.Clear();
         }
 
+        /// <summary>
+        /// Clicking the clear history button from history tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHistoryClearAll_Click(object sender, EventArgs e) => lstbHistory.Items.Clear();
     }
 }
